@@ -1,3 +1,4 @@
+HEAD
 # Secure Login System
 
 A self-contained Node.js/Express web app demonstrating a secure username/password
@@ -68,3 +69,6 @@ also consider:
   database for multi-instance deployments (SQLite sessions don't scale horizontally
   without a shared store).
 - Storing 2FA recovery/backup codes so users aren't locked out if they lose their device.
+=======
+
+>>>>>>> 48d56edd02e472f4b57043be6f35bb59b5a4a648
