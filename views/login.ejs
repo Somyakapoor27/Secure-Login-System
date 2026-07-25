@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to your account</p>
+
+    <% if (typeof registered !== 'undefined' && registered) { %>
+      <div class="success">Account created successfully. You can now sign in.</div>
+    <% } %>
+
+    <% if (errors && errors.length) { %>
+      <div class="errors">
+        <ul>
+          <% errors.forEach(function(e) { %>
+            <li><%= e.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/login" novalidate>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" value="<%= values.username || '' %>" required autofocus />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Sign In</button>
+    </form>
+
+    <div class="link-row">
+      Don't have an account? <a href="/register">Create one</a>
+    </div>
+  </div>
+</body>
+</html>

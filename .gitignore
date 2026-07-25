@@ -1,0 +1,8 @@
+node_modules/
+.env
+db/app.db
+db/app.db-journal
+db/app.db-wal
+db/app.db-shm
+db/sessions.db
+*.log

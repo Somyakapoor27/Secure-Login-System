@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two-Factor Verification</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>Two-factor verification</h1>
+    <p class="subtitle">Enter the 6-digit code from your authenticator app.</p>
+
+    <% if (errors && errors.length) { %>
+      <div class="errors">
+        <ul>
+          <% errors.forEach(function(e) { %>
+            <li><%= e.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/2fa/verify" novalidate>
+      <label for="token">Authentication code</label>
+      <input type="text" id="token" name="token" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autofocus />
+      <button type="submit">Verify</button>
+    </form>
+  </div>
+</body>
+</html>
